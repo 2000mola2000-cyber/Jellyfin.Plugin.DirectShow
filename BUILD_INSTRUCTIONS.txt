@@ -1,0 +1,14 @@
+BUILD INSTRUCTIONS - Jellyfin.Plugin.DirectShow (updated)
+
+1) Edit NuGet.config and replace:
+   - GITHUB-USERNAME with your GitHub username
+   - YOUR_GITHUB_TOKEN with a Personal Access Token that has 'read:packages' permission
+
+2) From the project folder (where the .csproj file is located) run:
+   dotnet restore
+   dotnet build --configuration Release
+
+Notes:
+- This repository uses NuGet.org and GitHub Packages as package sources (Jellyfin packages are hosted on GitHub Packages).
+- The plugin targets net8.0 and Jellyfin ABI 10.9.0.0. Adjust 'manifest.json' if you target a different Jellyfin version.
+- I could not run 'dotnet restore' or 'dotnet build' inside this environment; the zip I provide contains updated project files ready for you to build locally or in GitHub Actions.

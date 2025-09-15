@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DirectShow Tuner Configuration</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+    <style>
+        .device-list {
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        .channel-card {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-4">
+        <h1>DirectShow Tuner Configuration</h1>
+        
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Available Devices</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <h6>Video Devices</h6>
+                            <div class="device-list" id="videoDevices">
+                                <div class="spinner-border spinner-border-sm" role="status">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <h6>Audio Devices</h6>
+                            <div class="device-list" id="audioDevices">
+                                <div class="spinner-border spinner-border-sm" role="status">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary" onclick="refreshDevices()">Refresh Devices</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Add New Channel</h5>
+                    </div>
+                    <div class="card-body">
+                        <form id="channelForm">
+                            <div class="mb-3">
+                                <label class="form-label">Channel Name</label>
+                                <input type="text" class="form-control" id="channelName" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Video Device</label>
+                                <select class="form-select" id="videoDevice" required></select>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Audio Device</label>
+                                <select class="form-select" id="audioDevice"></select>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label class="form-label">Resolution</label>
+                                    <select class="form-select" id="resolution">
+                                        <option value="640x480">640x480</option>
+                                        <option value="1280x720" selected>1280x720</option>
+                                        <option value="1920x1080">1920x1080</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Framerate</label>
+                                    <input type="number" class="form-control" id="framerate" value="30">
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-md-6">
+                                    <label class="form-label">Video Bitrate (bps)</label>
+                                    <input type="number" class="form-control" id="videoBitrate" value="2000000">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Audio Bitrate (bps)</label>
+                                    <input type="number" class="form-control" id="audioBitrate" value="128000">
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-success mt-3">Add Channel</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mt-4">
+            <h3>Configured Channels</h3>
+            <div id="channelsList">
+                <div class="spinner-border" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="configuration.js"></script>
+</body>
+</html>

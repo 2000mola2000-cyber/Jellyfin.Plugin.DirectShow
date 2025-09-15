@@ -1,0 +1,9 @@
+{
+  "name": "DirectShow Plugin",
+  "guid": "b4d891b8-6df2-4f6a-83fb-90f732e4a311",
+  "version": "1.0.0",
+  "targetAbi": "10.9.0.0",
+  "framework": "net8.0",
+  "description": "Adds DirectShow playback support to Jellyfin (Windows only).",
+  "category": "Playback"
+}
